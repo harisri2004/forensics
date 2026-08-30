@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A forensic accounting review of Burberry's FY2026 recovery, benchmarked against five luxury peers. By Harisri V.">
+<meta name="author" content="Harisri V">
+<title>Was Burberry's Recovery Real?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --paper:#F5F6F8; --surface:#FFFFFF; --raised:#EDEFF3;
+  --ink:#141821; --slate:#4A5464; --mute:#6E7889;
+  --rule:#D6DAE1; --rule-soft:#E4E7EC;
+  --navy:#1E3A5F; --navy-soft:#31567F;
+  --flag:#8E2C3B; --flag-soft:#A94451;
+  --good:#2F5D50;
+  --shadow:0 1px 2px rgba(20,24,33,.06), 0 8px 24px -12px rgba(20,24,33,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1217; --surface:#161A21; --raised:#1D222B;
+    --ink:#E7EAEF; --slate:#A6B0BF; --mute:#7E8899;
+    --rule:#282E38; --rule-soft:#20252E;
+    --navy:#8FB3D9; --navy-soft:#6E97C4;
+    --flag:#D97F8D; --flag-soft:#C06474;
+    --good:#7FB3A1;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1217; --surface:#161A21; --raised:#1D222B;
+  --ink:#E7EAEF; --slate:#A6B0BF; --mute:#7E8899;
+  --rule:#282E38; --rule-soft:#20252E;
+  --navy:#8FB3D9; --navy-soft:#6E97C4;
+  --flag:#D97F8D; --flag-soft:#C06474;
+  --good:#7FB3A1;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:Spectral, Georgia, "Times New Roman", serif;
+  font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:960px; margin:0 auto; padding:0 28px 96px}
+p{margin:0 0 1em; max-width:68ch}
+a{color:var(--navy)}
+
+/* ---------- masthead ---------- */
+.masthead{padding:64px 0 28px; border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--mute); margin:0 0 18px;
+}
+h1{
+  font-family:"IBM Plex Sans", system-ui, sans-serif;
+  font-weight:600; font-size:clamp(34px, 5.2vw, 52px); line-height:1.06;
+  letter-spacing:-.022em; margin:0 0 14px; text-wrap:balance; max-width:16ch;
+}
+.standfirst{
+  font-size:19px; line-height:1.55; color:var(--slate);
+  max-width:60ch; margin:0 0 26px;
+}
+.byline{
+  font-family:"IBM Plex Mono", monospace; font-size:12px;
+  color:var(--mute); letter-spacing:.03em;
+}
+
+/* ---------- metric strip ---------- */
+.strip{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  margin:30px 0 4px; border-bottom:1px solid var(--rule);
+}
+.metric{padding:4px 22px 22px 0}
+.metric + .metric{border-left:1px solid var(--rule-soft); padding-left:22px}
+.metric .n{
+  font-family:"IBM Plex Sans", sans-serif; font-weight:600;
+  font-size:34px; line-height:1; letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums; color:var(--navy);
+}
+.metric.zero .n{color:var(--good)}
+.metric .l{
+  font-family:"IBM Plex Sans", sans-serif; font-size:12.5px;
+  color:var(--mute); margin-top:9px; line-height:1.35;
+}
+@media(max-width:680px){ .strip{grid-template-columns:repeat(2,1fr)} }
+
+/* ---------- sections ---------- */
+section{padding-top:52px}
+h2{
+  font-family:"IBM Plex Sans", sans-serif; font-weight:600;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--navy); margin:0 0 4px;
+}
+.h2rule{height:1px; background:var(--rule); margin:0 0 22px}
+h3{
+  font-family:"IBM Plex Sans", sans-serif; font-weight:600;
+  font-size:21px; letter-spacing:-.01em; margin:0 0 12px; text-wrap:balance;
+}
+.lede{font-size:18.5px; color:var(--ink)}
+.note{
+  font-family:"IBM Plex Sans", sans-serif; font-size:13px;
+  color:var(--mute); max-width:76ch; line-height:1.5;
+}
+
+/* ---------- charts ---------- */
+figure{margin:26px 0 8px}
+.chartbox{
+  background:var(--surface); border:1px solid var(--rule-soft);
+  border-radius:3px; padding:20px 18px 12px; overflow-x:auto;
+}
+svg{display:block; width:100%; height:auto}
+.legend{
+  display:flex; flex-wrap:wrap; gap:16px; margin-top:12px;
+  font-family:"IBM Plex Sans", sans-serif; font-size:12.5px; color:var(--slate);
+}
+.legend span{display:inline-flex; align-items:center; gap:7px}
+.swatch{width:14px; height:2.5px; border-radius:2px}
+figcaption{
+  font-family:"IBM Plex Sans", sans-serif; font-size:12.5px;
+  color:var(--mute); margin-top:12px; line-height:1.5; max-width:76ch;
+}
+
+/* ---------- hypotheses ---------- */
+.hyps{border-top:1px solid var(--rule); margin-top:8px}
+details{border-bottom:1px solid var(--rule-soft)}
+summary{
+  list-style:none; cursor:pointer; padding:13px 4px;
+  display:grid; grid-template-columns:44px 1fr auto; gap:14px; align-items:center;
+  font-family:"IBM Plex Sans", sans-serif; font-size:15px;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--raised)}
+summary:focus-visible{outline:2px solid var(--navy); outline-offset:-2px}
+.hid{
+  font-family:"IBM Plex Mono", monospace; font-size:12px;
+  color:var(--mute); letter-spacing:.04em;
+}
+.htitle{font-weight:500}
+.verdict{
+  font-family:"IBM Plex Mono", monospace; font-size:10.5px;
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
+  padding:3px 8px; border-radius:2px; border:1px solid;
+}
+.v-sub{color:var(--navy); border-color:var(--navy); opacity:.9}
+.v-weak{color:var(--slate); border-color:var(--rule)}
+.v-inc{color:var(--flag); border-color:var(--flag); opacity:.9}
+details > div{padding:2px 4px 20px 62px; font-size:15.5px; color:var(--slate); max-width:74ch}
+details > div em{color:var(--ink); font-style:normal; font-weight:500}
+@media(max-width:600px){
+  summary{grid-template-columns:36px 1fr; gap:10px}
+  .verdict{grid-column:2; justify-self:start; margin-top:4px}
+  details > div{padding-left:46px}
+}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto; margin:22px 0 6px}
+table{border-collapse:collapse; width:100%; font-family:"IBM Plex Sans", sans-serif; font-size:13.5px}
+th{
+  text-align:left; font-weight:600; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--mute);
+  padding:0 12px 9px 0; border-bottom:1px solid var(--rule);
+}
+td{padding:9px 12px 9px 0; border-bottom:1px solid var(--rule-soft); vertical-align:middle}
+td.num{text-align:right; font-variant-numeric:tabular-nums; padding-right:0; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.na{color:var(--mute); font-family:"IBM Plex Mono", monospace; font-size:12px}
+.thin{font-family:"IBM Plex Mono", monospace; font-size:10.5px; color:var(--mute); letter-spacing:.03em}
+.bar{height:7px; border-radius:1px; background:var(--navy); opacity:.85; min-width:2px}
+.barcell{width:46%; min-width:120px}
+
+/* ---------- pull ---------- */
+.finding{
+  border-top:2px solid var(--ink); border-bottom:1px solid var(--rule);
+  padding:14px 0 16px; margin:30px 0 8px;
+}
+.finding p{font-size:19px; line-height:1.5; margin:0; max-width:62ch}
+.kicker{
+  font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--flag); display:block; margin-bottom:8px;
+}
+
+/* ---------- material ---------- */
+.material{
+  background:var(--surface); border:1px solid var(--rule-soft);
+  border-radius:3px; padding:22px 24px; margin-top:26px;
+}
+.material ul{margin:0; padding:0; list-style:none;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:16px 26px}
+.material li{font-family:"IBM Plex Sans", sans-serif; font-size:13.5px; color:var(--slate); line-height:1.45}
+.material li b{display:block; color:var(--ink); font-weight:600; font-size:14px; margin-bottom:2px}
+
+footer{
+  margin-top:56px; padding-top:22px; border-top:1px solid var(--rule);
+  font-family:"IBM Plex Sans", sans-serif; font-size:12.5px; color:var(--mute); line-height:1.6;
+}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">Forensic accounting review · FY2021/22 – FY2025/26</p>
+  <h1>Was Burberry's recovery real?</h1>
+  <p class="standfirst">Burberry lost money, then reported a sharp recovery. I set out to prove that the recovery was an accounting effect rather than a real one. It held up.</p>
+  <p class="byline">Harisri V · August 2026 · Independent study, not commissioned</p>
+</header>
+
+<div class="strip">
+  <div class="metric"><div class="n">1,371</div><div class="l">pages in the evidence base</div></div>
+  <div class="metric"><div class="n">8</div><div class="l">hypotheses tested</div></div>
+  <div class="metric"><div class="n">6</div><div class="l">companies benchmarked</div></div>
+  <div class="metric zero"><div class="n">0</div><div class="l">evidence of fraud found</div></div>
+</div>
+
+<section>
+  <h2>What I was testing</h2><div class="h2rule"></div>
+  <p class="lede">Between 2022 and 2025 Burberry's revenue fell 13% and it went from £511m of profit before tax to a £66m loss. Measured from its FY2023 peak, revenue is down 22%. One year later it reported margins up, free cash flow more than doubled, and leverage down from 2.3x to 1.6x. The Remuneration Committee credited executives for the cash improvement.</p>
+  <p>A recovery that fast is worth checking, because there are legitimate accounting choices that flatter one year at the expense of another: releasing provisions taken earlier, delaying spending, or moving costs into a category excluded from headline figures. I wrote eight specific hypotheses of that kind and tried to prove each one.</p>
+</section>
+
+<section>
+  <h2>The finding that came closest</h2><div class="h2rule"></div>
+  <h3>Burberry spent far less on its stores than those assets were wearing out</h3>
+  <p>Cutting investment raises cash flow immediately, so it is the obvious way to make a year look better than it is. Investment fell to <strong>73% of depreciation</strong> — the lowest in the peer group, having been the highest four years earlier. Every other company in the set stayed above 100% throughout.</p>
+
+  <figure>
+    <div class="chartbox" id="capex"></div>
+    <div class="legend" id="capex-legend"></div>
+    <figcaption>Capital expenditure as a percentage of owned-asset depreciation and amortisation. Prada's FY2024 spike reflects the Versace acquisition. Richemont FY2026 is unavailable — its FY2026 annual report was not in the evidence base. Kering and Hugo Boss do not disclose owned depreciation separately from right-of-use depreciation, so they cannot be plotted on this basis.</figcaption>
+  </figure>
+
+  <p>It does not hold up as manipulation. Burberry told the market a year in advance that it would spend less — £21m of the £38m reduction was already in guidance. The cut shows up in committed spending, not just in cash timing. And next year's guidance of £120m shows no catch-up. The company was closing stores while its peers were opening them.</p>
+
+  <div class="finding">
+    <span class="kicker">What the peer data settled</span>
+    <p>The divergence from peers is real. The explanation is company-specific investment timing, not a manipulation of the reported result.</p>
+  </div>
+</section>
+
+<section>
+  <h2>All eight hypotheses</h2><div class="h2rule"></div>
+  <p class="note">Each was written as a specific, falsifiable claim before testing, then attacked with the disclosed evidence. Select any row to read it.</p>
+  <div class="hyps" id="hyps"></div>
+</section>
+
+<section>
+  <h2>Peer comparison</h2><div class="h2rule"></div>
+  <h3>Burberry holds the least inventory in the peer set, in every year</h3>
+  <p>If a company were hiding obsolete stock rather than writing it down, inventory would build. Burberry's did the opposite: 188 days at FY2026 against a peer range of 204 to 344, and it sits at the 17th percentile across the whole period. This was the clearest result the peer data produced, and it ran against the direction I expected.</p>
+
+  <figure>
+    <div class="chartbox" id="inv"></div>
+    <div class="legend" id="inv-legend"></div>
+    <figcaption>Inventory days, calculated as closing inventory divided by cost of sales, times 365. Richemont FY2026 unavailable.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Where Burberry sits against its peers</h2><div class="h2rule"></div>
+  <p class="note">Five-year mean percentile rank against the peer set, by metric. A high rank is not automatically bad — the direction of concern differs by metric. Metrics marked <span class="na">n/a</span> could not be computed because peers do not disclose the input, which is a finding about peer disclosure rather than a gap in the work. One metric rests on a single year and is marked as such.</p>
+  <div class="tablewrap"><table id="score"></table></div>
+</section>
+
+<section>
+  <h2>Method</h2><div class="h2rule"></div>
+  <p>Every claim is labelled fact, derivation, inference or unresolved, and every material figure carries a page reference to the annual report it came from. Assurance coverage was mapped per test against EY, the Audit Committee, Group Internal Audit and the FRC.</p>
+  <p>I then built a 23-metric screening model across Kering, Richemont, Moncler, Prada and Hugo Boss over the same five years, so each Burberry number could be judged against the same number at five comparable companies rather than in isolation.</p>
+  <p class="note" style="margin-top:18px">How it was built: the reports were converted to searchable text so passages could be located and read against each other, and the model was built in Excel with every input traced to a page reference. The reasoning, the hypotheses and the verdicts are mine; the extraction and the arithmetic were automated so the time went into judgement rather than transcription.</p>
+</section>
+
+<section>
+  <h2>Errors and corrections</h2><div class="h2rule"></div>
+  <p>I misread an inventory provision balance as a big-bath charge when the underlying charge had actually fallen. I overstated one exposure threefold. I left internal audit out of seven assurance maps. <strong>Every one of those errors made Burberry look worse than its disclosures support</strong> — a directional bias in my own method, recorded as such in the final report.</p>
+  <p>Two defects in the peer model were caught the same way: a percentile formula that was ranking Burberry against itself, and a group-assignment bug that put eleven metrics in the wrong weight class.</p>
+</section>
+
+<section>
+  <h2>What this work cannot do</h2><div class="h2rule"></div>
+  <p>It uses only published disclosures. That is enough to test whether a disclosed pattern fits a suspected mechanism. It cannot judge whether a particular estimate was the best one available, and it gives no sight of transactions, models or working papers.</p>
+</section>
+
+<section>
+  <h2>Conclusion</h2><div class="h2rule"></div>
+  <p class="lede">The recovery is supported by the accounting rather than produced by it. Where Burberry looks unusual against its peers, the reason is disclosed rather than buried: it told the market a year in advance that it would spend less, and volunteered that part of the reduction was timing.</p>
+  <p>I would not extrapolate the cash flow yet. Half the improvement came from spending less on stores and equipment, and up to £17m of that was deferred rather than saved. The open item is the £37m UK element of an £87m loss-based deferred tax asset, whose recovery needs roughly £300m of future UK taxable profit. On this evidence I would treat FY2026 as a real result but not yet a repeatable one, and would want the FY2026/27 outturn before reading it as a trend.</p>
+
+  <div class="material">
+    <ul>
+      <li><b>Case study</b>26 pages, page-cited, locked August 2026</li>
+      <li><b>Peer model</b>23 metrics, six companies, five years</li>
+      <li><b>Model specification</b>23 metrics with stated failure modes</li>
+      <li><b>Change log</b>Every correction, with its direction of effect</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  Built from published annual reports only: Burberry FY2021/22–FY2025/26; Kering, Richemont, Moncler, Prada and Hugo Boss over the same period. Statutory tax rates are the only external inputs. No evidence of fraud was found and none is alleged.
+</footer>
+
+</div>
+
+<script>
+const YEARS = ['FY2022','FY2023','FY2024','FY2025','FY2026'];
+
+function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+function lineChart(el, legendEl, series, opts){
+  const W = 880, H = opts.height || 300;
+  const m = {t:16, r:16, b:34, l:46};
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const yMax = opts.yMax, yMin = 0;
+  const x = i => m.l + (iw * i) / (YEARS.length - 1);
+  const y = v => m.t + ih - (ih * (v - yMin)) / (yMax - yMin);
+
+  let g = '';
+  // gridlines
+  for (let t = 0; t <= yMax; t += opts.step){
+    g += `<line x1="${m.l}" x2="${W-m.r}" y1="${y(t)}" y2="${y(t)}" stroke="${css('--rule-soft')}" stroke-width="1"/>`;
+    g += `<text x="${m.l-9}" y="${y(t)+4}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="${css('--mute')}">${t}</text>`;
+  }
+  if (opts.refLine){
+    g += `<line x1="${m.l}" x2="${W-m.r}" y1="${y(opts.refLine)}" y2="${y(opts.refLine)}" stroke="${css('--mute')}" stroke-width="1" stroke-dasharray="3 3" opacity="0.7"/>`;
+    g += `<text x="${W-m.r}" y="${y(opts.refLine)-7}" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="10.5" fill="${css('--mute')}">${opts.refLabel}</text>`;
+  }
+  YEARS.forEach((yr,i)=>{
+    g += `<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="${css('--mute')}">${yr.replace('FY','')}</text>`;
+  });
+
+  let legend = '';
+  series.forEach(s=>{
+    const pts = s.values.map((v,i)=> v==null ? null : [x(i), y(v)]).filter(Boolean);
+    const d = pts.map((p,i)=> (i?'L':'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+    const col = css(s.token);
+    const w = s.emphasis ? 2.6 : 1.5;
+    const op = s.emphasis ? 1 : .62;
+    g += `<path d="${d}" fill="none" stroke="${col}" stroke-width="${w}" opacity="${op}" stroke-linejoin="round" stroke-linecap="round"/>`;
+    pts.forEach((p,i)=>{
+      const last = i === pts.length-1;
+      g += `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${s.emphasis?(last?4:2.8):(last?3:2)}" fill="${col}" opacity="${op}"/>`;
+    });
+    if (s.emphasis && pts.length){
+      const p = pts[pts.length-1];
+      const val = s.values.filter(v=>v!=null).slice(-1)[0];
+      g += `<text x="${p[0]-8}" y="${p[1]+15}" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="12.5" fill="${col}">${val}${opts.suffix||''}</text>`;
+    }
+    legend += `<span><i class="swatch" style="background:${col};opacity:${op}"></i>${s.name}</span>`;
+  });
+
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.aria}">${g}</svg>`;
+  legendEl.innerHTML = legend;
+}
+
+const capexSeries = [
+  {name:'Burberry',  token:'--flag', values:[129,136,143,91,73], emphasis:true},
+  {name:'Richemont', token:'--navy', values:[102,134,150,157,null]},
+  {name:'Moncler',   token:'--slate',values:[121,160,154,161,180]},
+  {name:'Prada',     token:'--navy-soft', values:[111,114,329,164,186]},
+];
+const invSeries = [
+  {name:'Burberry',  token:'--flag', values:[191,179,193,168,188], emphasis:true},
+  {name:'Hugo Boss', token:'--slate',values:[208,255,241,237,204]},
+  {name:'Moncler',   token:'--navy-soft', values:[201,224,242,252,287]},
+  {name:'Prada',     token:'--navy', values:[296,312,309,289,344]},
+  {name:'Kering',    token:'--mute', values:[269,316,358,325,334]},
+  {name:'Richemont', token:'--navy-soft', values:[362,415,443,465,null]},
+];
+
+function drawAll(){
+  lineChart(document.getElementById('capex'), document.getElementById('capex-legend'),
+    capexSeries, {yMax:350, step:50, refLine:100, refLabel:'replacement rate (100%)', suffix:'%',
+    aria:'Capital expenditure as a percentage of owned-asset depreciation, five years, four companies. Burberry falls from 129 percent to 73 percent while peers stay above 100 percent.'});
+  lineChart(document.getElementById('inv'), document.getElementById('inv-legend'),
+    invSeries, {yMax:500, step:100, height:280,
+    aria:'Inventory days over five years for six companies. Burberry is lowest in every year.'});
+}
+drawAll();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawAll);
+
+const HYPS = [
+  ['H1','Deferred tax assets may rest on optimistic profit forecasts','weak','Weakened',
+   'Burberry recognised £87m of loss-based deferred tax assets — £47m Mainland China, £37m UK. Recovery depends on forecast future profits. <em>The UK element requires roughly £300m of future taxable profit.</em> The disclosed evidence supports recognition, but this is the one item that stays genuinely open until the outturn.'],
+  ['H2','The rise in expected credit losses may be a judgement change, not real deterioration','sub','Substantially weakened',
+   'The loss allowance rose from 4.6% of gross trade receivables in FY2022 to 11.9% in FY2026. <em>Cross-sectionally Burberry sits at the 25th percentile on receivables days</em>, consistent with its heavy owned-retail mix. The pattern fits genuine wholesale credit deterioration rather than a change in method.'],
+  ['H3','FY2025 inventory may have been over-provided, creating a FY2026 margin benefit','sub','Substantially weakened',
+   'The provision balance rose from 11.4% to 19.6% of gross inventory, then fell to 14.3%. But the gross charge <em>fell</em> from £54m to £52m — the balance rose because utilisation collapsed. And Burberry holds the least inventory in the peer set in every year of the study.'],
+  ['H4','Changed impairment assumptions may have reduced the FY2026 charge','sub','Substantially weakened',
+   'The discount rate range widened at both ends, from 10.5–12.8% to 8.7–13.6%. <em>I initially read only the bottom of the range falling — half a data point.</em> The charge fell 76%. Read against the sensitivities Burberry discloses, that fall is consistent with better store trading rather than with a change in assumption.'],
+  ['H5','The adjusting-items judgement may be applied opportunistically','sub','Substantially weakened',
+   'Adjusting items are excluded from the profit measure driving 75% of executive bonus, and IFRS does not define the term. A counterfactual shows executive pay would have differed by <em>£1,631,250</em> had they not been excluded. That is a point about incentive design; the classification itself follows a consistent stated policy.'],
+  ['H6','The 117% free cash flow improvement may be driven by capex cuts and working capital timing','sub','Substantially weakened',
+   'Capex accounted for £38m of the £76m improvement. But working capital was a <em>£34m drag</em>, not a source, and operating cash before working capital improved £90m — more than the entire headline. The capex element was guided a year in advance and matched by an accrual-basis reduction.'],
+  ['H7','Wholesale revenue may be recognised prematurely','sub','Substantially weakened',
+   'Wholesale is the only channel carrying material recognition judgement. EY designated revenue recognition a fraud risk under ISA 240. The cut-off and channel-mix evidence that is disclosed gives no sign of premature recognition.'],
+  ['H8','Sales returns may be inadequately provided','inc','Inconclusive',
+   'The refund liability is <em>unquantified in all five annual reports</em>. Without the balance there is nothing to test against. This is a disclosure gap, not evidence of a problem — and it is the one hypothesis I could neither support nor weaken.'],
+];
+document.getElementById('hyps').innerHTML = HYPS.map(([id,title,cls,verdict,body])=>`
+  <details>
+    <summary>
+      <span class="hid">${id}</span>
+      <span class="htitle">${title}</span>
+      <span class="verdict v-${cls}">${verdict}</span>
+    </summary>
+    <div>${body}</div>
+  </details>`).join('');
+
+const SCORE = [
+  ['Deferred tax assets to net assets',93,5],['Effective tax rate gap',90,4],
+  ['Gross margin index',80,4],['Cash conversion',75,4],
+  ['SG&A index',65,4],['Days sales in receivables',57,4],
+  ['Capex intensity',55,5],['Depreciation index',54,4],
+  ['Capex replacement rate',52,5],['Accruals, impairment-adjusted',50,4],
+  ['FCF conversion',45,5],['Total accruals to assets',34,5],
+  ['Sales growth index',29,4],['Sloan accruals ratio',26,4],
+  ['Receivables days',21,5],['Inventory days',17,5],
+  ['Impairment intensity',100,1],
+  ['Inventory provision coverage',null,0],['Expected credit loss coverage',null,0],
+  ['Cash-to-accrual capex divergence',null,0],
+];
+document.getElementById('score').innerHTML =
+  `<thead><tr><th>Metric</th><th>Rank against peers</th><th style="text-align:right">Percentile</th></tr></thead><tbody>` +
+  SCORE.map(([n,v,yrs])=>`<tr>
+      <td>${n}${yrs>0&&yrs<3?' <span class="thin">one year only</span>':''}</td>
+      <td class="barcell">${v==null?'<span class="na">not computable</span>':`<div class="bar" style="width:${v}%;${yrs<3?'opacity:.4':''}"></div>`}</td>
+      <td class="num">${v==null?'<span class="na">n/a</span>':v+'%'}</td>
+    </tr>`).join('') + `</tbody>`;
+</script>
+</body>
+</html>
